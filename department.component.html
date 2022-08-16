@@ -1,0 +1,73 @@
+<a id="one2" class="navbar-collapse navbar-brand" href="#">Visitor List</a>
+<div class="row">
+    <div class="column">
+      <form method="get" action="/search" class="form-inline mt-2 my-sm-0" style="margin:o;max-width:300px">
+  <select class="form-select form-select-lg" aria-label="Default select example" id="select" (change)="Sort($event)">
+      <option selected>Sort In</option>
+      <option value="1">Ascending Order</option>
+      <option value="2">Descending Order</option>
+  </select>
+  </form>
+    </div>
+    <div class="column1">
+          <input [(ngModel)]="example" name="example" class="form-control mr-sm-2" type="search" placeholder="Search By Id" aria-label="search" id="search">
+          </div>
+          <div class="column1">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="SearchById()">Search</button>
+    </div>
+    <div class="column1">
+        <input [(ngModel)]="example2" name="example2" class="form-control mr-sm-2" type="search" placeholder="Search By Name" aria-label="search" id="search">
+        </div>
+        <div class="column1">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="SearchByName()">Search</button>
+  </div>
+    </div>
+
+
+<div class=" table-responsive-md">
+<table class="table table-bordered table-hover">
+    <thead >
+        <tr>
+            <th>Id</th>
+            <th>Visitor Name</th>
+            <th>Organization Name</th>
+            <th>Purpose</th>
+            <th>CNIC</th>
+            <th>Contact No</th>
+            <th>Employee id</th>
+            <th>Check In Time</th>
+            <th>Check Out Time</th>
+            <th>Status</th>
+            <th>Status</th>
+            <th>Options</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of VisitorList">
+            <td>{{item.id}}</td>
+            <td>{{item.visitor_name}}</td>
+            <td>{{item.organization_name}}</td>
+            <td>{{item.purpose}}</td>
+            <td>{{item.cnic}}</td>
+            <td>{{item.contact_no}}</td>
+            <td>{{item.employee_id}}</td>
+            <td>{{item.checkin_time | date:'medium'}}</td>
+            <td>{{item.checkout_time| date:'medium'}}</td>
+            <td id="status">{{item.status}}</td>
+            <td>{{item.status2}}</td>
+            <td>
+                <button type="button" class="btn btn-light mr-1" data-toggle="modal" data-target="#exampleModal" class="btn btn-outline-primary"
+                    data-backdrop="static" data-keyboard="false" routerLink='/newappointments/{{item.id}}' *ngIf="item.status=='Check In'">
+                    Edit</button>
+                <button type="button" class="btn btn-light mr-1" data-toggle="modal" data-target="#exampleModal" class="btn btn-outline-primary"
+                    data-backdrop="static" data-keyboard="false" routerLink='/newappointment' *ngIf="item.status=='Check Out'">
+                    Edit</button>    
+                     <button type="button" class="btn btn-light mr-1" data-toggle="modal" data-target="#exampleModal" class="btn btn-outline-primary"
+                    data-backdrop="static" data-keyboard="false" routerLink='/empappointments/{{item.id}}' *ngIf="item.status=='Scheduled'">
+                    Edit</button>    
+                <button type="button" class=" mr-1 btn btn-outline-danger" (click)="deleteClick(item) ">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>

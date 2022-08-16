@@ -1,0 +1,147 @@
+<a id="one3" class="navbar-collapse navbar-brand" href="#">Checkout form</a>
+<div class="container-fluid2">
+  <div class="row">
+    <div class="col min-vh-100 p-4">
+      <div class="container"   *ngFor="let item of list">
+        <form  [formGroup]="userForm">
+          <div class="row">
+            <div class="col-25">
+              <label>Visitor Name:</label><br>
+            </div>
+            <div class="col-75">
+              <input type="text" placeholder="Enter Visitor Name"  formControlName="visitor_name" [(ngModel)]="item.visitor_name" name='name' class="inputbox"  readonly/>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-25">
+              <label>Visit ID:</label>
+            </div>
+            <div class="col-75">
+              <input type="number" placeholder="Enter Visitor ID" formControlName="id"  [(ngModel)]="item.id" name='id'  class="col-85" readonly />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-25">
+              <label>Organization Name:</label>
+            </div>
+            <div class="col-75">
+              <input type="text" placeholder="Enter Organization Name" formControlName="organization_name" [(ngModel)]="item.organization_name" name='organization_name'
+                class="form-control" readonly/>
+            </div> 
+            </div>
+        
+          <div class="row">
+            <div class="col-25">
+              <label>Purpose:</label>
+            </div>
+            <div class="col-75">
+              <input type="text" placeholder="Enter Purpose of Visit" formControlName="purpose" [(ngModel)]="item.purpose" name='purpose' class="form-control" readonly/>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-25">
+              <label>CNIC Number:</label>
+            </div>
+            <div class="col-75">
+              <input type="text" placeholder="Enter CNIC Number"  formControlName="cnic"  [(ngModel)]="item.cnic" name='cnic' class="form-control" readonly/>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+              <label>Employee ID:</label>
+            </div>
+            <div class="col-75">
+                <input type="text" formControlName="employee_id"  [(ngModel)]="item.employee_id" name='employee_id' class="form-control" readonly/>
+            </div>
+              <!-- <select formControlName="employee_id">
+                <option readonly >{{item.employee_id}}</option>
+              </select> -->
+          </div>
+
+        
+
+          <div class="row">
+            <div class="col-25">
+              <label>Contact Number:</label>
+            </div>
+            <div class="col-75">
+              <input type="text" placeholder="Enter Contact Number"  formControlName="contact_no" [(ngModel)]="item.contact_no" name='contact_no' class="form-control" readonly/>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-25">
+              <label for="appt">Check In time:</label>
+            </div>
+            <div class="col-75">
+              <input type="datetime-local" id="checkin_time" formControlName="checkin_time" [(ngModel)]="item.checkin_time" name="checkin_time" readonly >
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-25">
+              <label for="appt">Check Out time:</label>
+            </div>
+            <div class="col-75">
+              <input type="datetime-local" id="checkout_time" formControlName="checkout_time" name="checkout_time" >
+            </div>
+          </div>
+
+            <div class="row">
+            <div class="col-25">
+              <label>Status:</label>
+            </div>
+            <div class="col-75">
+             <select formControlName="status">
+              <option >{{item.status}}</option>
+                <option  name="status" *ngIf="item.status=='Check In'">Check Out</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-25">
+              <label>Gender:</label>
+            </div>
+            <div class="col-75">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" value="{{item.gender}}" [(ngModel)]="item.gender" name="gender" formControlName="gender" checked>
+              {{item.gender}}
+            </div>
+          </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+              <label>Person Status:</label>
+            </div>
+            <div class="col-75">
+            <div class="form-check form-check-inline" >
+              <input class="form-check-input" type="radio" value="{{item.status2}}" [(ngModel)]="item.status2" name="status2" formControlName="status2" checked>
+              {{item.status2}}
+            
+          </div>
+        </div>
+        </div>
+
+              <div class="col-25">
+                <label>Group Id:</label>
+              </div>
+              <div class="col-75">
+                <input formControlName="group_id" name="group_id" [(ngModel)]="this.lastdummyId.group_id" readonly>
+              </div>
+
+          <div class="form-group">
+            <button type="register" class="btn btn-primary" (click)="editForm()">Update</button>
+            <button type="reset" class="btn btn-warning float-right">
+              Reset
+            </button> 
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+*/
